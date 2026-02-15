@@ -7,7 +7,7 @@ import {
   insertReviewSchema,
 } from "@shared/schema";
 import { z } from "zod";
-import { setupAuth, registerAuthRoutes } from "./replit_integrations/auth";
+import { setupAuth, registerAuthRoutes } from "./auth";
 import {
   getRazorpayKeyId,
   createOrder,

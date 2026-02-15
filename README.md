@@ -10,7 +10,7 @@ Garum is a hyperlocal social marketplace that combats urban loneliness by enabli
 - **Frontend**: React 18, TypeScript, Vite, TailwindCSS, Shadcn UI
 - **Backend**: Express.js, TypeScript
 - **Database**: PostgreSQL with Drizzle ORM
-- **Authentication**: Replit Auth (OpenID Connect)
+- **Authentication**: Session-based (bcrypt + express-session)
 
 ## Local Development Setup
 
@@ -59,13 +59,6 @@ DATABASE_URL=postgresql://garum_user:your_password@localhost:5432/garum
 
 # Session secret (generate a random string)
 SESSION_SECRET=your-super-secret-session-key-here
-
-# Replit-specific (for local dev, you can use mock values)
-REPLIT_DEPLOYMENT=
-REPL_ID=local-dev
-REPL_OWNER=local
-REPL_SLUG=garum
-ISSUER_URL=
 
 # Optional: Razorpay (payments disabled for MVP)
 # RAZORPAY_KEY_ID=your_key_id
@@ -139,14 +132,6 @@ garum/
 
 ### Categories
 - `GET /api/categories` - List all categories
-
-## Authentication Note
-
-This app uses Replit Auth for authentication in production. For local development without Replit:
-
-1. The auth routes (`/api/login`, `/api/logout`, `/api/auth/user`) require the Replit environment
-2. For local testing, you may need to mock the authentication or implement a local auth strategy
-3. The `useAuth` hook in `client/src/hooks/use-auth.tsx` handles auth state
 
 ## Design System
 
